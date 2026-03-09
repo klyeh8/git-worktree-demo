@@ -1,0 +1,104 @@
+/* ========================================
+   COOKIE CONSENT
+   ======================================== */
+.cookie-consent {
+    position: fixed;
+    bottom: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - var(--space-12));
+    max-width: 800px;
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    animation: cookieSlideUp var(--transition-slow) forwards;
+}
+
+.cookie-consent--closing {
+    animation: cookieSlideDown var(--transition-base) forwards;
+}
+
+.cookie-consent__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+}
+
+.cookie-consent__text {
+    flex: 1;
+}
+
+.cookie-consent__title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.cookie-consent__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.cookie-consent__actions {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+}
+
+.cookie-consent__btn {
+    white-space: nowrap;
+}
+
+@keyframes cookieSlideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 40px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes cookieSlideDown {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .cookie-consent {
+        bottom: 0;
+        width: 100%;
+        border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+        border-bottom: none;
+        padding: var(--space-6) var(--space-4);
+        max-width: none;
+    }
+
+    .cookie-consent__content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-4);
+    }
+
+    .cookie-consent__actions {
+        flex-direction: column;
+    }
+    
+    .cookie-consent__btn {
+        width: 100%;
+    }
+}
