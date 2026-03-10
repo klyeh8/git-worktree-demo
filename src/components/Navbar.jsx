@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NAV_LINKS, BRAND } from '../data/navigation';
+import ThemeToggle from './ThemeToggle';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -39,9 +40,12 @@ function Navbar() {
                             </li>
                         ))}
                     </ul>
-                    <a href="#demo" className="btn btn--primary btn--sm navbar__cta">
-                        預約 Demo
-                    </a>
+                    <div className="navbar__actions" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
+                        <ThemeToggle />
+                        <a href="#demo" className="btn btn--primary btn--sm navbar__cta">
+                            預約 Demo
+                        </a>
+                    </div>
                 </nav>
             </div>
         </header>
